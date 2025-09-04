@@ -86,7 +86,7 @@ D=true
 
 # Reference for QUAST run
 ref=None
-quast_t=48
+quast_t?=$(t)
 
 # Output prefix for final scaffolds file
 out_prefix=None
@@ -172,6 +172,9 @@ help:
 	@echo "	c			minimum aligned read pairs per molecule [4]"	
 	@echo "	l			minimum number of links to compute scaffold [4]"
 	@echo "	a			maximum link ratio between two best contain pairs [0.3]"
+	@echo ""
+	@echo "	QUAST options:"
+	@echo "	quast_t			threads for QUAST [defaults to value of 't'; override with quast_t=<N>]"
 	@echo ""
 	@echo "Notes:"
 	@echo "	- by default, span is automatically calculated as 1/4 of the sequence coverage of the input long reads"
@@ -336,13 +339,13 @@ ifeq ($(ref), None)
 endif
 
 quast_longstitch-z$z_ntLink-k$(k_ntLink)-w$w_arks-long: arks-with-tigmint-ntLink
-	quast -t $(quast_t) -o $@ -r $(ref) --fast --scaffold-gap-max-size 100000  --large \
+	OMP_NUM_THREADS=$(quast_t) quast -t $(quast_t) -o $@ -r $(ref) --fast --scaffold-gap-max-size 100000 --large \
 		$(draft).fa  \
 		$(draft).cut$(cut).tigmint.fa \
 		$(draft).cut$(cut).tigmint.fa.k$(k_ntLink).w$w.z$z.ntLink.scaffolds.fa \
 		$(draft).cut$(cut).tigmint.fa.k$(k_ntLink).w$w.z$z.ntLink.scaffolds_c$c_m$m_cut$(cut)_k$(k_arks)_r$r_e$e_z$z_l$l_a$a.scaffolds.fa
 
 quast_ntLink-z$z_ntLink-k$(k_ntLink)-w$w: ntLink
-	quast -t $(quast_t) -o $@ -r $(ref) --fast --scaffold-gap-max-size 100000  --large \
+	OMP_NUM_THREADS=$(quast_t) quast -t $(quast_t) -o $@ -r $(ref) --fast --scaffold-gap-max-size 100000 --large \
 	$(draft).fa  \
 	$(draft).fa.k$(k_ntLink).w$w.z$z.ntLink.scaffolds.fa
