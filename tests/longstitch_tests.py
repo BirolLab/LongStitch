@@ -32,8 +32,8 @@ def check_stats(abyssfac_filename):
     reference_stats = pd.read_csv("expected_outputs/{}".format(abyssfac_filename), sep="\t")
     ci_stats = pd.read_csv(abyssfac_filename, sep="\t")
 
-    assert int(reference_stats["N50"]) == int(ci_stats["N50"])
-    assert int(reference_stats["n"]) == int(ci_stats["n"])
+    assert int(reference_stats["N50"].iloc[0]) == int(ci_stats["N50"].iloc[0])
+    assert int(reference_stats["n"].iloc[0]) == int(ci_stats["n"].iloc[0])
 
 def test_default():
     "Testing default target, specifying k"
