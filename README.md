@@ -1,16 +1,16 @@
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/bcgsc/longstitch)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/BirolLab/longstitch)
 [![Published in BMC Bioinformatics](https://img.shields.io/badge/Published%20in-BMC%20Bioinformatics-blue)](https://doi.org/10.1186/s12859-021-04451-7)
 [![Conda](https://img.shields.io/conda/dn/bioconda/longstitch?label=Conda)](https://anaconda.org/bioconda/longstitch)
 
-![Logo](https://github.com/bcgsc/longstitch/blob/master/longstitch-logo.png)
+![Logo](https://github.com/BirolLab/longstitch/blob/master/longstitch-logo.png)
 
 # LongStitch
 A genome assembly correction and scaffolding pipeline using long reads, consisting of up to three steps:
-* [Tigmint](https://github.com/bcgsc/tigmint) cuts the draft assembly at potentially misassembled regions
-* [ntLink](https://github.com/bcgsc/ntLink) is then used to scaffold the corrected assembly
-* followed by [ARKS](https://github.com/bcgsc/arcs) for further scaffolding (optional extra step of scaffolding)
+* [Tigmint](https://github.com/BirolLab/tigmint) cuts the draft assembly at potentially misassembled regions
+* [ntLink](https://github.com/BirolLab/ntLink) is then used to scaffold the corrected assembly
+* followed by [ARKS](https://github.com/BirolLab/arcs) for further scaffolding (optional extra step of scaffolding)
 
-<img src="https://github.com/bcgsc/LongStitch/blob/master/LongStitch_overview.png" width="480">
+<img src="https://github.com/BirolLab/LongStitch/blob/master/LongStitch_overview.png" width="480">
 
 ### Credits
 LongStitch was developed and designed by Lauren Coombe, Janet Li, Theodora Lo and Rene Warren.
@@ -35,16 +35,16 @@ brew install tigmint ntlink arcs
 
 Alternatively, use the latest release tarball:
 ```
-wget https://github.com/bcgsc/LongStitch/releases/download/v1.0.5/longstitch-1.0.5.tar.gz
+wget https://github.com/BirolLab/LongStitch/releases/download/v1.0.5/longstitch-1.0.5.tar.gz
 ```
 
 #### Dependencies
 * GNU Make
-* [Tigmint](https://github.com/bcgsc/tigmint) v1.2.4+
-* [ntLink](https://github.com/bcgsc/ntLink) v1.3.3+
-* [ARCS/ARKS](https://github.com/bcgsc/arcs) v1.2.5+
-* [ABySS](https://github.com/bcgsc/abyss) v2.3.0+
-* [LINKS](https://github.com/bcgsc/links) v1.8.7
+* [Tigmint](https://github.com/BirolLab/tigmint) v1.2.4+
+* [ntLink](https://github.com/BirolLab/ntLink) v1.3.3+
+* [ARCS/ARKS](https://github.com/BirolLab/arcs) v1.2.5+
+* [ABySS](https://github.com/BirolLab/abyss) v2.3.0+
+* [LINKS](https://github.com/BirolLab/links) v1.8.7
 * [samtools](http://www.htslib.org/)
 
 
